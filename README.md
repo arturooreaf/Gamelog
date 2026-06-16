@@ -16,4 +16,4 @@ Java 21 · Spring Boot 3 · PostgreSQL · Docker · JWT
 
 ## Status
 
-🚧 Work in progress — started June 2026
+
