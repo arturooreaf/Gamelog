@@ -1,8 +1,11 @@
+package Clases;
+
 public class Game {
     //region atributos
     private String title;
     private int releaseYear;
-
+    //endregion
+//region Getters and Setters
     public String getTitle() {
         return title;
     }
@@ -20,10 +23,22 @@ public class Game {
     }
 
     //endregion
-//region Constructore
+//region Constructores
     public Game(String title, int releaseYear) {
+        if (releaseYear < 0 || releaseYear >= 2050) {
+            throw new IllegalArgumentException("The game must have been released in a positive year");
+        }
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("titulo");
+        }
+
         this.title = title; // "el atributo de este objeto = el valor que me pasaron
         this.releaseYear = releaseYear;
     }
-//endregion
+    //endregion
+    @Override
+    public String toString() {
+        return "The game is : " + this.title + " was released in the year: "+ this.releaseYear;
+    }
 }
+
