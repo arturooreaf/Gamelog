@@ -13,6 +13,7 @@ public class User {
     }
 
     public void setUsername(String username) {
+        validateUsername(username);
         this.username = username;
     }
 
@@ -21,6 +22,7 @@ public class User {
     }
 
     public void setEmail(String email) {
+        validateEmail(email);
         this.email = email;
     }
 
@@ -36,12 +38,8 @@ public class User {
 
     //region Constructor
     public User(String username, String email, String password) {
-        if (username == null || username.isBlank()) {
-            throw new IllegalArgumentException("The username cannot null or blank");
-        }
-        if (email == null || email.isBlank() || !email.contains("@")) {
-            throw new IllegalArgumentException("The email cannot null or Blank and need contains @");
-        }
+        validateUsername(username);
+        validateEmail(email);
         validatepassword(password);
 
         this.password = password;
@@ -50,6 +48,8 @@ public class User {
     }
 
     //endregion
+
+    //region Methods
     @Override
     public String toString() {
         return this.username + this.email + this.password;
@@ -66,6 +66,20 @@ public class User {
         }
 
     }
+
+    private void validateUsername(String username) {
+        if (username == null || username.isBlank()) {
+            throw new IllegalArgumentException("The username cannot null or blank");
+        }
+    }
+
+    private void validateEmail(String email) {
+        if (email == null || email.isBlank() || !email.contains("@")) {
+            throw new IllegalArgumentException("The username cannot null or blank");
+        }
+    }
+
+    //endregion
 }
 
 
