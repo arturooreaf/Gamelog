@@ -2,6 +2,7 @@ package clases;
 
 import enumerados.GameStatus;
 
+
 public class Game {
     //region attributes/fields
     private String title;
@@ -32,6 +33,7 @@ public class Game {
     }
 
     public void setTitle(String title) {
+        validateTitle(title);
         this.title = title;
     }
 
@@ -40,19 +42,15 @@ public class Game {
     }
 
     public void setReleaseYear(int releaseYear) {
+        validateReleaseYear(releaseYear);
         this.releaseYear = releaseYear;
     }
 
     //endregion
 //region Constructor
     public Game(String title, int releaseYear, Developer developer, GameStatus status) {
-        if (releaseYear < 1958 || releaseYear >= 2050) {
-            throw new IllegalArgumentException("The game must have been released in a positive year");
-        }
-        if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("A game must have a title");
-        }
-
+        validateTitle(title);
+        validateReleaseYear(releaseYear);
         this.title = title; // "el atributo de este objeto = el valor que me pasaron
         this.releaseYear = releaseYear;
         this.developer = developer;
@@ -60,10 +58,23 @@ public class Game {
     }
 
     //endregion
+    //region Methods
     @Override
     public String toString() {
         return "The game is: " + this.title + " (" + this.releaseYear + ") | " + this.developer;
     }
-}
+//endregion
+    private void validateReleaseYear(int releaseYear) {
+        if (releaseYear < 1958 || releaseYear >= 2050) {
+            throw new IllegalArgumentException("The game must have been released in a positive year");
+        }
+    }
 
+    private void validateTitle(String title) {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("A game must have a title");
+        }
+    }
+
+}
 

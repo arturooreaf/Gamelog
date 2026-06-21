@@ -11,6 +11,7 @@ public class Developer {
     }
 
     public void setName(String name) {
+        validateName(name);
         this.name = name;
     }
 
@@ -19,19 +20,16 @@ public class Developer {
     }
 
     public void setFoundingYear(int foundingYear) {
+        validateFoundingYear(foundingYear);
         this.foundingYear = foundingYear;
     }
     //endregion
 
     //region Constructor
     public Developer(String name, int foundingYear){
-        if (name == null || name.isBlank() || name.isEmpty()){
-            throw new IllegalArgumentException("The name of developers cannot be blank");
+        validateName(name);
+        validateFoundingYear(foundingYear);
 
-        }
-        if(foundingYear<0){
-            throw new IllegalArgumentException("The developer studio must have been released in a positive year");
-        }
 
         this.name = name;
 
@@ -43,5 +41,17 @@ public class Developer {
     @Override
     public String toString() {
         return "The developer studio is : " + this.name + " was founded in the year: " + this.foundingYear;
+    }
+    private void validateName (String name ){
+        if (name == null || name.isBlank() || name.isEmpty()){
+            throw new IllegalArgumentException("The name of developers cannot be blank");
+
+        }
+
+    }
+    private void validateFoundingYear (int foundingYear){
+        if(foundingYear<0){
+            throw new IllegalArgumentException("The developer studio must have been released in a positive year");
+        }
     }
 }
