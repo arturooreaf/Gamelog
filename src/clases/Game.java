@@ -3,7 +3,7 @@ package clases;
 import enumerados.GameStatus;
 
 public class Game {
-    //region atributos
+    //region attributes/fields
     private String title;
     private int releaseYear;
     private Developer developer;
@@ -44,7 +44,7 @@ public class Game {
     }
 
     //endregion
-//region Constructores
+//region Constructor
     public Game(String title, int releaseYear, Developer developer, GameStatus status) {
         if (releaseYear < 1958 || releaseYear >= 2050) {
             throw new IllegalArgumentException("The game must have been released in a positive year");

@@ -1,7 +1,7 @@
 package clases;
 
 public class Developer {
-//region atributos
+//region attributes/fields
     private String name;
     private int foundingYear;
     //endregion
@@ -23,7 +23,7 @@ public class Developer {
     }
     //endregion
 
-    //region Constructores
+    //region Constructor
     public Developer(String name, int foundingYear){
         if (name == null || name.isBlank() || name.isEmpty()){
             throw new IllegalArgumentException("The name of developers cannot be blank");
