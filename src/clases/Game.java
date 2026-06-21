@@ -1,6 +1,7 @@
 package clases;
 
 import enumerados.GameStatus;
+import jdk.jshell.Snippet;
 
 
 public class Game {
@@ -21,6 +22,7 @@ public class Game {
     }
 
     public void setDeveloper(Developer developer) {
+       validateDeveloper(developer);
         this.developer = developer;
     }
 
@@ -29,6 +31,7 @@ public class Game {
     }
 
     public void setStatus(GameStatus status) {
+        validateStatus(status);
         this.status = status;
     }
 
@@ -51,11 +54,15 @@ public class Game {
     public Game(String title, int releaseYear, Developer developer, GameStatus status) {
         validateTitle(title);
         validateReleaseYear(releaseYear);
+        validateStatus(status);
+        validateDeveloper(developer);
         this.title = title; // "el atributo de este objeto = el valor que me pasaron
         this.releaseYear = releaseYear;
         this.developer = developer;
         this.status = status;
     }
+
+
 
     //endregion
     //region Methods
@@ -75,6 +82,11 @@ public class Game {
             throw new IllegalArgumentException("A game must have a title");
         }
     }
-
+private void validateStatus(GameStatus status){
+    if (status == null) throw new IllegalArgumentException("status cannot null ");
+}
+    private void validateDeveloper(Developer developer) {
+        if (developer == null) throw new IllegalArgumentException("developer cannot null ");
+    }
 }
 

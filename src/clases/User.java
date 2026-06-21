@@ -31,7 +31,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        validatepassword(password);
+        validatePassword(password);
         this.password = password;
     }
     //endregion
@@ -40,7 +40,7 @@ public class User {
     public User(String username, String email, String password) {
         validateUsername(username);
         validateEmail(email);
-        validatepassword(password);
+        validatePassword(password);
 
         this.password = password;
         this.username = username;
@@ -55,7 +55,7 @@ public class User {
         return " Username: "+ this.username + "| Email: " + this.email + "| Password: "+this.password;
     }
 
-    private void validatepassword(String password) {
+    private void validatePassword(String password) {
         if (password == null || password.isBlank()) {
             throw new IllegalArgumentException("The password cannot null or blank");
         }
@@ -75,7 +75,7 @@ public class User {
 
     private void validateEmail(String email) {
         if (email == null || email.isBlank() || !email.contains("@")) {
-            throw new IllegalArgumentException("The username cannot null or blank");
+            throw new IllegalArgumentException("The email cannot null or blank");
         }
     }
 

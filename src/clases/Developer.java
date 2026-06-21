@@ -43,7 +43,7 @@ public class Developer {
         return "The developer studio is : " + this.name + " was founded in the year: " + this.foundingYear;
     }
     private void validateName (String name ){
-        if (name == null || name.isBlank() || name.isEmpty()){
+        if (name == null || name.isBlank() ){
             throw new IllegalArgumentException("The name of developers cannot be blank");
 
         }
