@@ -52,7 +52,7 @@ public class User {
     //region Methods
     @Override
     public String toString() {
-        return this.username + this.email + this.password;
+        return " Username: "+ this.username + "| Email: " + this.email + "| Password: "+this.password;
     }
 
     private void validatepassword(String password) {
