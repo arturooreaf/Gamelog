@@ -14,6 +14,6 @@ A backend REST API to track your video game collection — like a personal Backl
 
 Java 21 · Spring Boot 3 · PostgreSQL · Docker · JWT
 
-## Status
+
 
 
