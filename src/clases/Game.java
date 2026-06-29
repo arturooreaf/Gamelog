@@ -12,6 +12,27 @@ public class Game extends CatalogItem {
 
     private Developer developer;
     private GameStatus status;
+    private static int idNext;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+
+    public static int getIdNext() {
+        return idNext;
+    }
+
+    public static void setIdNext(int idNext) {
+        Game.idNext = idNext;
+    }
+
 
     //endregion
 //region Getters and Setters
@@ -43,6 +64,8 @@ public class Game extends CatalogItem {
         super(title, releaseYear);
         validateStatus(status);
         validateDeveloper(developer);
+        idNext = idNext+1;
+        id = idNext;
         this.developer = developer;
         this.status = status;
     }

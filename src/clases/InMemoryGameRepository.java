@@ -1,8 +1,9 @@
 package clases;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryGameRepository implements  GameRepository {
+public class InMemoryGameRepository implements GameRepository {
     private List<Game> games = new ArrayList<>();
 
     @Override
@@ -12,17 +13,26 @@ public class InMemoryGameRepository implements  GameRepository {
 
     @Override
     public Game findById(int id) {
+        for (Game game : games) {
+
+            if (game.getId() == id) {
+                return game;
+            }
+        }
         return null;
-    }
 
-    @Override
-    public List<Game> findAll() {
-        return games;
-    }
 
-    @Override
-    public void delete(int id) {
 
-    }
+}
+
+@Override
+public List<Game> findAll() {
+    return games;
+}
+
+@Override
+public void delete(int id) {
+
+}
 
 }
