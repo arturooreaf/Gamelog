@@ -2,10 +2,13 @@ package clases;
 
 import enumerados.GameStatus;
 
+import java.util.Objects;
 
 
 public class Game extends CatalogItem {
     //region attributes/fields
+
+
 
     private Developer developer;
     private GameStatus status;
@@ -57,6 +60,17 @@ public class Game extends CatalogItem {
                 ", developer=" + developer +
                 ", status=" + status +
                 '}';
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return Objects.equals(getTitle(), game.getTitle()) && getReleaseYear() == game.getReleaseYear();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTitle(), getReleaseYear());
     }
 
     //endregion

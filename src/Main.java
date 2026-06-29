@@ -19,4 +19,11 @@ Game game1 = new Game ("Dark Souls",2011,dev1, GameStatus.COMPLETED);
     memory.save(game1);
     List<Game>all = memory.findAll();
     System.out.println(all);
+
+    Game game2 = new Game("Dark Souls", 2011, dev1, GameStatus.COMPLETED);
+    System.out.println(game1.equals(game2));
+
+
+
+
 }
