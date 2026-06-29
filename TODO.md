@@ -1,2 +1,0 @@
-- [x] Semana 1: Dominio completo (Game, Developer, User, Playthrough, Review)
-- [ ] Mañana: Semana 2 - Herencia, clase abstracta CatalogItem
